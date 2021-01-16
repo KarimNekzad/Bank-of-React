@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Home from "./components/Home"
 import UserProfile from "./components/UserProfile"
 import LogIn from "./components/Login"
+import Debits from "./components/Debits"
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class App extends Component {
         userName: "Bob",
         memberSince: "09/24/00",
       },
+      debits: [],
+      credits: [],
     }
   }
 
@@ -53,6 +56,7 @@ class App extends Component {
           <Route exact path="/" render={HomeComponent} />
           <Route exact path="/userProfile" render={UserProfileComponent} />
           <Route exact path="/login" render={LogInComponent} />
+          <Route exact path="/debits" component={Debits} />
         </Switch>
       </Router>
     )

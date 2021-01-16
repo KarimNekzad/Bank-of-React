@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 
+import loginIcon from "./images/login.png"
+
 class LogIn extends Component {
   constructor() {
     super()
@@ -35,6 +37,7 @@ class LogIn extends Component {
 
     return (
       <div>
+        <img src={loginIcon} alt="login icon" />
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="userName">User Name</label>
