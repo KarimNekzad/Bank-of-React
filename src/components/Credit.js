@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
+import DisplayApiDebit from "./DisplayApiDebit";
 
 class Credit extends Component {
 
@@ -23,12 +24,20 @@ class Credit extends Component {
   render() {
     console.log("render credit")
     return (
+
       <div>
         <p>Credit</p>
-        <Credit>
-          
-        </Credit>
-      </div>
+        {this.state.creditData.map((creditData, index) => (
+
+        <DisplayApiDebit
+            key={index}
+            amount={creditData.amount}
+            date={creditData.date}
+            description={creditData.description}
+            id={creditData.id}
+         />
+      ))}
+    </div>
     )
   }
 }
