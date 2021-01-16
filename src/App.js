@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       accountBalance: 2400.53,
       currentUser: {
-        username: "Bob",
+        userName: "Bob",
         memberSince: "09/24/00",
       },
     }
@@ -33,7 +33,7 @@ class App extends Component {
 
     const UserProfileComponent = () => (
       <UserProfile
-        username={this.state.currentUser.username}
+        username={this.state.currentUser.userName}
         memberSince={this.state.currentUser.memberSince}
       />
     )

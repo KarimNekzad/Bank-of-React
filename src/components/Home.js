@@ -15,6 +15,8 @@ class Home extends Component {
         <p>By: Damir Kamalov, Mohammed J. Hossain, Karim Nekzad</p>
 
         <Link to="/userProfile">User Profile</Link>
+        <br />
+        <Link to="/login">Login</Link>
 
         <AccountBalance accountBalance={this.props.accountBalance} />
       </div>

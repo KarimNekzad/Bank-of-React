@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 
-class Login extends Component {
-  constructor(props) {
-    super(props)
+class LogIn extends Component {
+  constructor() {
+    super()
     this.state = {
       user: {
-        username: "",
+        userName: "",
         password: "",
       },
       redirect: false,
@@ -37,10 +37,10 @@ class Login extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="username">User Name</label>
+            <label htmlFor="userName">User Name</label>
             <input
               type="text"
-              name="username"
+              name="userName"
               onChange={this.handleChange}
               value={this.state.user.userName}
             />
@@ -56,4 +56,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default LogIn
