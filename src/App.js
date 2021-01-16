@@ -8,6 +8,7 @@ import Home from "./components/Home"
 import UserProfile from "./components/UserProfile"
 import LogIn from "./components/Login"
 import Debits from "./components/Debits"
+import Credit from "./components/Credit"
 
 class App extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ class App extends Component {
           <Route exact path="/userProfile" render={UserProfileComponent} />
           <Route exact path="/login" render={LogInComponent} />
           <Route exact path="/debits" component={Debits} />
+          <Route exact path="/credit" component={Credit} />
         </Switch>
       </Router>
     )
