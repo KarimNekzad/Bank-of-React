@@ -23,10 +23,12 @@ class Credit extends Component {
   }
 
   submitForm() {
-    // converts date to string preventing error
-    let date = `${new Date()}`
+    if (this.state.temp.amount === 0 || this.state.temp.amount === "") {
+      alert("Please enter an amount")
+      return
+    }
 
-    // generate Date and ID
+    let date = `${new Date()}`
     this.setState({
       temp: {
         ...this.state.temp,
@@ -35,7 +37,6 @@ class Credit extends Component {
       },
     })
 
-    // allows above setState to occur before updating states
     setTimeout(() => {
       let updatedCredit = [...this.state.credit]
       updatedCredit.push(this.state.temp)

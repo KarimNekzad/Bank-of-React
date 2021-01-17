@@ -34,10 +34,12 @@ class Debits extends Component {
   }
 
   submitForm() {
-    // converts date to string preventing error
-    let date = `${new Date()}`
+    if (this.state.temp.amount === 0 || this.state.temp.amount === "") {
+      alert("Please enter an amount")
+      return
+    }
 
-    // generate Date and ID
+    let date = `${new Date()}`
     this.setState({
       temp: {
         ...this.state.temp,
@@ -46,13 +48,10 @@ class Debits extends Component {
       },
     })
 
-    // allows above setState to occur before updating states
     setTimeout(() => {
       let updatedDebit = [...this.state.debit]
       updatedDebit.push(this.state.temp)
-      // update local state to map changes
       this.setState({ debit: updatedDebit })
-      // update parent state to store changes
       this.props.updateDebitState(updatedDebit)
     }, 100)
   }
