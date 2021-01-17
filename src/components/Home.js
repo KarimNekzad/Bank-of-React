@@ -8,6 +8,7 @@ import bankIcon from "./images/bank.jpg"
 
 class Home extends Component {
   render() {
+    let balance = Number(this.props.accountBalance).toFixed(2)
     return (
       <div>
         <img src={bankIcon} alt="Bank Icon" />
@@ -18,10 +19,10 @@ class Home extends Component {
         <br />
         <Link to="/login">Login</Link>
         <br />
-        <Link to="/debits">Debits</Link>
+        <Link to="/debits">Debit</Link>
         <br />
         <Link to="/Credit">Credit</Link>
-        <AccountBalance accountBalance={this.props.accountBalance} />
+        <AccountBalance accountBalance={balance} />
       </div>
     )
   }

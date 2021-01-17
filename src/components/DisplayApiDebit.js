@@ -7,7 +7,7 @@ class DisplayApiDebit extends Component {
     return (
       <div>
         <p>amount: {amount} </p>
-        <p>desctiprion: {date} </p>
+        <p>date: {date} </p>
         <p>description: {description} </p>
         <p>id: {id} </p>
       </div>

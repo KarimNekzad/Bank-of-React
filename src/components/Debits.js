@@ -1,15 +1,17 @@
 import React, { Component } from "react"
 import axios from "axios"
 
+import { Link } from "react-router-dom"
+
 import DisplayApiDebit from "./DisplayApiDebit"
 
 class Debits extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: [],
+      debit: this.props.debit,
       temp: {
-        amount: "",
+        amount: 0,
         date: "",
         description: "",
         id: "",
@@ -18,17 +20,6 @@ class Debits extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.submitForm = this.submitForm.bind(this)
-  }
-
-  async componentDidMount() {
-    console.log("comp did mount debits")
-    await this.fetchDebits()
-  }
-
-  async fetchDebits() {
-    const response = await axios.get("https://moj-api.herokuapp.com/debits")
-    console.log("response", response.data)
-    this.setState({ data: response.data })
   }
 
   handleChange(e) {
@@ -42,20 +33,26 @@ class Debits extends Component {
   }
 
   submitForm() {
-    let updatedData = [...this.state.data]
-    updatedData.push(this.state.temp)
-    this.setState({ data: updatedData })
+    let updatedDebit = [...this.state.debit]
+    updatedDebit.push(this.state.temp)
+    // update local state to map changes
+    this.setState({ debit: updatedDebit })
+    // update parent state to store changes
+    this.props.updateDebitState(updatedDebit)
   }
 
   render() {
     console.log("render debits")
     return (
       <div>
+        <Link to="/">Return Home</Link>
+        <br />
+        <Link to="/Credit">View Credit</Link>
         <h3>Add Debit</h3>
         <form onSubmit={this.handleChange}>
           <div>
             <label htmlFor="">Amount</label>
-            <input onChange={this.handleChange} type="text" name="amount" />
+            <input onChange={this.handleChange} type="number" name="amount" />
           </div>
           <div>
             <label htmlFor="">Date</label>
@@ -76,15 +73,14 @@ class Debits extends Component {
 
           <button onClick={this.submitForm}>Submit</button>
         </form>
-
-        <h1>Debits</h1>
-        {this.state.data.map((data, index) => (
+        <h1>Debit</h1>
+        {this.state.debit.map((debit, index) => (
           <DisplayApiDebit
             key={index}
-            amount={data.amount}
-            date={data.date}
-            description={data.description}
-            id={data.id}
+            amount={debit.amount}
+            date={debit.date}
+            description={debit.description}
+            id={debit.id}
           />
         ))}
       </div>
