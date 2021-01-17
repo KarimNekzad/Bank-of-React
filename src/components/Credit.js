@@ -73,20 +73,12 @@ class Credit extends Component {
             <input onChange={this.handleChange} type="number" name="amount" />
           </div>
           <div>
-            <label htmlFor="">Date</label>
-            <input onChange={this.handleChange} type="text" name="date" />
-          </div>
-          <div>
             <label htmlFor="">Description</label>
             <input
               onChange={this.handleChange}
               type="text"
               name="description"
             />
-          </div>
-          <div>
-            <label htmlFor="">ID</label>
-            <input onChange={this.handleChange} type="text" name="id" />
           </div>
 
           <button onClick={this.submitForm}>Submit</button>
