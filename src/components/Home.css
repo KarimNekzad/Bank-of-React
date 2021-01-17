@@ -1,3 +1,8 @@
+.container {
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
 .title {
   background-color: #004406;
   color: white;
@@ -37,7 +42,7 @@
 }
 
 .route-link a:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   color: dodgerblue;
   border: 1px solid rgba(30, 143, 255, 0.466);
   background-color: white;

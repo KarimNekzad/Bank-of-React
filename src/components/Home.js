@@ -12,7 +12,7 @@ class Home extends Component {
   render() {
     let balance = Number(this.props.accountBalance).toFixed(2)
     return (
-      <div>
+      <div className="container">
         <div className="title">
           {/* Be careful of using h1 in header, it has margin so it pushes itself down, cutting off the top */}
           Bank of React
