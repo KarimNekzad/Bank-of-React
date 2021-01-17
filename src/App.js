@@ -65,14 +65,14 @@ class App extends Component {
 
   updateBalance() {
     let updatedBalance = 0
-    for (let i = 0; i < this.state.debit.length; i++) {
+    for (let i = 0; i < this.state.credit.length; i++) {
       // parseFloat() forces js to do math instead of appending strings
-      updatedBalance += parseFloat(this.state.debit[i].amount)
+      updatedBalance += parseFloat(this.state.credit[i].amount)
     }
     console.log("==================")
-    for (let i = 0; i < this.state.credit.length; i++) {
+    for (let i = 0; i < this.state.debit.length; i++) {
       // parseFloat() not necessary for below operation but inclded for clarity
-      updatedBalance -= parseFloat(this.state.credit[i].amount)
+      updatedBalance -= parseFloat(this.state.debit[i].amount)
     }
     this.setState({ accountBalance: updatedBalance })
   }
