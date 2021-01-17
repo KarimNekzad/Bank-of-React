@@ -122,16 +122,23 @@ class App extends Component {
     )
 
     return (
-      <Router basename={process.env.PUBLIC_URL}>
-        <Switch>
-          {/* <Route exact path="/" component={HomeComponent} /> Must use the render prop becuase passing props to component at router level */}
-          <Route exact path="/" render={HomeComponent} />
-          <Route path="/userProfile" render={UserProfileComponent} />
-          <Route path="/login" render={LogInComponent} />
-          <Route path="/debits" render={DebitsComponent} />
-          <Route path="/credit" render={CreditComponent} />
-        </Switch>
-      </Router>
+      <div className="App">
+        {/* <header>
+          <h1>Bank of React</h1>
+          <p>By: Karim Nekzad, Damir Kamalov, Mohammed J. Hossain</p>
+        </header> */}
+
+        <Router basename={process.env.PUBLIC_URL}>
+          <Switch>
+            {/* <Route exact path="/" component={HomeComponent} /> Must use the render prop becuase passing props to component at router level */}
+            <Route exact path="/" render={HomeComponent} />
+            <Route path="/userProfile" render={UserProfileComponent} />
+            <Route path="/login" render={LogInComponent} />
+            <Route path="/debits" render={DebitsComponent} />
+            <Route path="/credit" render={CreditComponent} />
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }

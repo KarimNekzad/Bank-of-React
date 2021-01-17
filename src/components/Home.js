@@ -4,25 +4,33 @@ import { Link } from "react-router-dom"
 
 import AccountBalance from "./AccountBalance"
 
-import bankIcon from "./images/bank.jpg"
+import bankIcon from "./images/money.png"
+
+import "./Home.css"
 
 class Home extends Component {
   render() {
     let balance = Number(this.props.accountBalance).toFixed(2)
     return (
       <div>
-        <img src={bankIcon} alt="Bank Icon" />
-        <h1>Bank of React</h1>
-        <p>By: Damir Kamalov, Mohammed J. Hossain, Karim Nekzad</p>
+        <div className="title">
+          {/* Be careful of using h1 in header, it has margin so it pushes itself down, cutting off the top */}
+          Bank of React
+          <p>By: Karim Nekzad, Damir Kamalov, Mohammed J. Hossain</p>
+        </div>
 
-        <Link to="/userProfile">User Profile</Link>
-        <br />
-        <Link to="/login">Login</Link>
-        <br />
-        <Link to="/debits">Debit</Link>
-        <br />
-        <Link to="/Credit">Credit</Link>
-        <AccountBalance accountBalance={balance} />
+        <div className="route-link">
+          <Link to="/userProfile">User Profile</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/debits">Debit</Link>
+          <Link to="/Credit">Credit</Link>
+        </div>
+
+        <img src={bankIcon} alt="Bank Icon" height="380px" />
+
+        <div className="balance">
+          <AccountBalance accountBalance={balance} />
+        </div>
       </div>
     )
   }
