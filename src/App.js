@@ -120,7 +120,7 @@ class App extends Component {
     )
 
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           {/* <Route exact path="/" component={HomeComponent} /> Must use the render prop becuase passing props to component at router level */}
           <Route exact path="/" render={HomeComponent} />
