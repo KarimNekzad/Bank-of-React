@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import axios from "axios"
 
 import { Link } from "react-router-dom"
 
@@ -24,10 +23,25 @@ class Credit extends Component {
   }
 
   submitForm() {
-    let updatedCredit = [...this.state.credit]
-    updatedCredit.push(this.state.temp)
-    this.setState({ credit: updatedCredit })
-    this.props.updateCreditState(updatedCredit)
+    // converts date to string preventing error
+    let date = `${new Date()}`
+
+    // generate Date and ID
+    this.setState({
+      temp: {
+        ...this.state.temp,
+        date: date,
+        id: parseInt(Math.random() * (99999 - 10000) + 10000),
+      },
+    })
+
+    // allows above setState to occur before updating states
+    setTimeout(() => {
+      let updatedCredit = [...this.state.credit]
+      updatedCredit.push(this.state.temp)
+      this.setState({ credit: updatedCredit })
+      this.props.updateCreditState(updatedCredit)
+    }, 100)
   }
 
   handleChange(e) {
@@ -69,11 +83,11 @@ class Credit extends Component {
 
         <form onSubmit={this.handleChange}>
           <div>
-            <label htmlForm="">Amount</label>
+            <label>Amount</label>
             <input onChange={this.handleChange} type="number" name="amount" />
           </div>
           <div>
-            <label htmlFor="">Description</label>
+            <label>Description</label>
             <input
               onChange={this.handleChange}
               type="text"
