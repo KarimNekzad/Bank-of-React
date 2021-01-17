@@ -4,6 +4,7 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 
 import DisplayApiDebit from "./DisplayApiDebit"
+import AccountBalance from "./AccountBalance"
 
 class Debits extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Debits extends Component {
         description: "",
         id: "",
       },
+      viewBalance: false,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -49,6 +51,25 @@ class Debits extends Component {
         <br />
         <Link to="/Credit">View Credit</Link>
         <h3>Add Debit</h3>
+
+        {/* View Balance */}
+        <div>
+          <button
+            onClick={() =>
+              this.setState({ viewBalance: !this.state.viewBalance })
+            }
+          >
+            View Balance
+          </button>
+          {this.state.viewBalance === true ? (
+            <AccountBalance accountBalance={this.props.accountBalance} />
+          ) : (
+            // span tag used to display nothing if ternary is false
+            <span />
+          )}
+        </div>
+
+        {/* Form */}
         <form onSubmit={this.handleChange}>
           <div>
             <label htmlFor="">Amount</label>
@@ -73,6 +94,8 @@ class Debits extends Component {
 
           <button onClick={this.submitForm}>Submit</button>
         </form>
+
+        {/* Display debit */}
         <h1>Debit</h1>
         {this.state.debit.map((debit, index) => (
           <DisplayApiDebit
