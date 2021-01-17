@@ -1,0 +1,18 @@
+.display-data {
+  font-size: 30px;
+
+  width: 31%;
+  margin: 1rem;
+  padding: 15px;
+
+  border: 1px dotted #333;
+  border-radius: 8px;
+
+  float: left;
+  box-sizing: border-box;
+}
+
+.id {
+  font-size: 12px;
+  color: #333;
+}

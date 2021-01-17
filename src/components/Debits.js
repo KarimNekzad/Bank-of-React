@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 import { Link } from "react-router-dom"
 
-import DisplayApiDebit from "./DisplayApiDebit"
+import DisplayData from "./DisplayData"
 import AccountBalance from "./AccountBalance"
 
 class Debits extends Component {
@@ -104,7 +104,7 @@ class Debits extends Component {
         {/* Display debit */}
         <h1>Debit</h1>
         {this.state.debit.map((debit, index) => (
-          <DisplayApiDebit
+          <DisplayData
             key={index}
             amount={debit.amount}
             date={debit.date}
