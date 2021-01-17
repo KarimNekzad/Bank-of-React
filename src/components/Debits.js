@@ -45,6 +45,7 @@ class Debits extends Component {
 
   render() {
     console.log("render debits")
+    let balance = Number(this.props.accountBalance).toFixed(2)
     return (
       <div>
         <Link to="/">Return Home</Link>
@@ -62,7 +63,7 @@ class Debits extends Component {
             View Balance
           </button>
           {this.state.viewBalance === true ? (
-            <AccountBalance accountBalance={this.props.accountBalance} />
+            <AccountBalance accountBalance={balance} />
           ) : (
             // span tag used to display nothing if ternary is false
             <span />

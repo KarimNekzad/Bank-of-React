@@ -115,6 +115,7 @@ class App extends Component {
 
     const CreditComponent = () => (
       <Credit
+        accountBalance={this.state.accountBalance}
         credit={this.state.credit}
         updateCreditState={this.updateCreditState}
       />
