@@ -35,12 +35,27 @@ class Debits extends Component {
   }
 
   submitForm() {
-    let updatedDebit = [...this.state.debit]
-    updatedDebit.push(this.state.temp)
-    // update local state to map changes
-    this.setState({ debit: updatedDebit })
-    // update parent state to store changes
-    this.props.updateDebitState(updatedDebit)
+    // converts date to string preventing error
+    let date = `${new Date()}`
+
+    // generate Date and ID
+    this.setState({
+      temp: {
+        ...this.state.temp,
+        date: date,
+        id: parseInt(Math.random() * (99999 - 10000) + 10000),
+      },
+    })
+
+    // allows above setState to occur before updating states
+    setTimeout(() => {
+      let updatedDebit = [...this.state.debit]
+      updatedDebit.push(this.state.temp)
+      // update local state to map changes
+      this.setState({ debit: updatedDebit })
+      // update parent state to store changes
+      this.props.updateDebitState(updatedDebit)
+    }, 100)
   }
 
   render() {

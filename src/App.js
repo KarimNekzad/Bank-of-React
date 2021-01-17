@@ -126,10 +126,10 @@ class App extends Component {
         <Switch>
           {/* <Route exact path="/" component={HomeComponent} /> Must use the render prop becuase passing props to component at router level */}
           <Route exact path="/" render={HomeComponent} />
-          <Route exact path="/userProfile" render={UserProfileComponent} />
-          <Route exact path="/login" render={LogInComponent} />
-          <Route exact path="/debits" render={DebitsComponent} />
-          <Route exact path="/credit" render={CreditComponent} />
+          <Route path="/userProfile" render={UserProfileComponent} />
+          <Route path="/login" render={LogInComponent} />
+          <Route path="/debits" render={DebitsComponent} />
+          <Route path="/credit" render={CreditComponent} />
         </Switch>
       </Router>
     )
