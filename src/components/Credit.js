@@ -99,7 +99,9 @@ class Credit extends Component {
           <button onClick={this.submitForm}>Submit</button>
         </form>
 
-        <h1>Credit</h1>
+        <div className="debit-credit-title">
+          <p>Credit</p>
+        </div>
         {this.state.credit.map((credit, index) => (
           <DisplayData
             key={index}

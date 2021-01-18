@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 import DisplayData from "./DisplayData"
 import AccountBalance from "./AccountBalance"
 
+import "./Debit-Credit.css"
+
 class Debits extends Component {
   constructor(props) {
     super(props)
@@ -102,7 +104,9 @@ class Debits extends Component {
         </form>
 
         {/* Display debit */}
-        <h1>Debit</h1>
+        <div className="debit-credit-title">
+          <p>Debit</p>
+        </div>
         {this.state.debit.map((debit, index) => (
           <DisplayData
             key={index}
