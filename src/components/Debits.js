@@ -1,75 +1,76 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
-import DisplayData from "./DisplayData"
-import AccountBalance from "./AccountBalance"
+import DisplayData from './DisplayData';
+import AccountBalance from './AccountBalance';
 
-import "./Debit-Credit.css"
+import '../styles/Debit-Credit.css';
 
 class Debits extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       debit: this.props.debit,
       temp: {
         amount: 0,
-        date: "",
-        description: "",
-        id: "",
+        date: '',
+        description: '',
+        id: '',
       },
       viewBalance: false,
-    }
+    };
 
-    this.handleChange = this.handleChange.bind(this)
-    this.submitForm = this.submitForm.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   handleChange(e) {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({
       temp: {
         ...this.state.temp,
         [e.target.name]: e.target.value,
       },
-    })
+    });
   }
 
   submitForm() {
-    if (this.state.temp.amount === 0 || this.state.temp.amount === "") {
-      alert("Please enter an amount")
-      return
+    if (this.state.temp.amount === 0 || this.state.temp.amount === '') {
+      alert('Please enter an amount');
+      return;
     }
 
-    let date = `${new Date()}`
+    let date = `${new Date()}`;
     this.setState({
       temp: {
         ...this.state.temp,
         date: date,
         id: parseInt(Math.random() * (99999 - 10000) + 10000),
       },
-    })
+    });
 
     setTimeout(() => {
-      let updatedDebit = [...this.state.debit]
-      updatedDebit.push(this.state.temp)
-      this.setState({ debit: updatedDebit })
-      this.props.updateDebitState(updatedDebit)
-    }, 100)
+      let updatedDebit = [...this.state.debit];
+      updatedDebit.push(this.state.temp);
+      this.setState({ debit: updatedDebit });
+      this.props.updateDebitState(updatedDebit);
+    }, 100);
   }
 
   render() {
-    console.log("render debits")
-    let balance = Number(this.props.accountBalance).toFixed(2)
+    console.log('render debits');
+    let balance = Number(this.props.accountBalance).toFixed(2);
     return (
       <div>
-        <Link to="/">Return Home</Link>
+        <Link to='/'>Return Home</Link>
         <br />
-        <Link to="/Credit">View Credit</Link>
+        <Link to='/Credit'>View Credit</Link>
+        <h1>Debit Info</h1>
         <h3>Add Debit</h3>
 
         {/* View Balance */}
-        <div>
+        <div className='view-balance'>
           <button
             onClick={() =>
               this.setState({ viewBalance: !this.state.viewBalance })
@@ -88,15 +89,15 @@ class Debits extends Component {
         {/* Form */}
         <form onSubmit={this.handleChange}>
           <div>
-            <label htmlFor="">Amount</label>
-            <input onChange={this.handleChange} type="number" name="amount" />
+            <label htmlFor=''>Amount</label>
+            <input onChange={this.handleChange} type='number' name='amount' />
           </div>
           <div>
-            <label htmlFor="">Description</label>
+            <label htmlFor=''>Description</label>
             <input
               onChange={this.handleChange}
-              type="text"
-              name="description"
+              type='text'
+              name='description'
             />
           </div>
 
@@ -104,9 +105,7 @@ class Debits extends Component {
         </form>
 
         {/* Display debit */}
-        <div className="debit-credit-title">
-          <p>Debit</p>
-        </div>
+        <div className='debit-credit-title'></div>
         {this.state.debit.map((debit, index) => (
           <DisplayData
             key={index}
@@ -117,8 +116,8 @@ class Debits extends Component {
           />
         ))}
       </div>
-    )
+    );
   }
 }
 
-export default Debits
+export default Debits;

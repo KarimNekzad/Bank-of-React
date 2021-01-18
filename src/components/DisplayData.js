@@ -1,14 +1,14 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
-import "./DisplayData.css"
+import '../styles/DisplayData.css';
 
 class DisplayData extends Component {
   render() {
-    console.log("render debits")
-    const { amount, date, description, id } = this.props
+    console.log('render debits');
+    const { amount, date, description, id } = this.props;
     return (
-      <div className="data-container">
-        <div className="display-data">
+      <div className='data-container'>
+        <div className='display-data'>
           <div>
             <p>Amount: ${amount} </p>
           </div>
@@ -18,13 +18,13 @@ class DisplayData extends Component {
           <div>
             <p>Description: {description} </p>
           </div>
-          <div className="id">
+          <div className='id'>
             <p>id: {id} </p>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default DisplayData
+export default DisplayData;
