@@ -57,56 +57,13 @@ class Credit extends Component {
   }
 
   render() {
-    // console.log("render credit")
-    // let balance = Number(this.props.accountBalance).toFixed(2)
-    // return (
-    //   <div>
-    //     <Link to="/">Return Home</Link>
-    //     <br />
-    //     <Link to="/debits">View Debit</Link>
-    //     <h3> Add Credit Transaction</h3>
-
-    //     {/* View Balance */}
-    //     <div>
-    //       <button
-    //         onClick={() =>
-    //           this.setState({ viewBalance: !this.state.viewBalance })
-    //         }
-    //       >
-    //         View Balance
-    //       </button>
-    //       {this.state.viewBalance === true ? (
-    //         <AccountBalance accountBalance={balance} />
-    //       ) : (
-    //         // span tag used to display nothing if ternary is false
-    //         <span />
-    //       )}
-    //     </div>
-
-    //     <form onSubmit={this.handleChange}>
-    //       <div>
-    //         <label>Amount</label>
-    //         <input onChange={this.handleChange} type="number" name="amount" />
-    //       </div>
-    //       <div>
-    //         <label>Description</label>
-    //         <input
-    //           onChange={this.handleChange}
-    //           type="text"
-    //           name="description"
-    //         />
-    //       </div>
-
-    //       <button onClick={this.submitForm}>Submit</button>
-    //     </form>
-
     console.log("render credit")
     let balance = Number(this.props.accountBalance).toFixed(2)
     return (
       <div>
         <nav className="debit-credit-nav">
           <Link to="/">Return Home</Link>
-          <Link to="/Credit">View Debit</Link>
+          <Link to="/debits">View Debit</Link>
 
           {/* Buttons */}
           <button
