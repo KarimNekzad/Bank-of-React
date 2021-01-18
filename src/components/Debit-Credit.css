@@ -3,3 +3,54 @@
   color: #333333;
   font-weight: 700;
 }
+
+.debit-credit-nav {
+  width: 64%;
+  margin: auto;
+  font-size: 1rem;
+  padding: 3rem;
+  background-color: #333333;
+}
+
+.debit-credit-nav a {
+  color: #f4f4f4;
+  margin-right: 1rem;
+  text-decoration: none;
+  padding: 1rem;
+  border: 1px solid #333333;
+  border-radius: 7px;
+
+  transition: 0.2s ease-in;
+}
+
+.debit-credit-nav a:visited {
+  color: white;
+}
+
+.debit-credit-nav a:hover {
+  opacity: 0.9;
+  color: dodgerblue;
+  border: 1px solid rgba(30, 143, 255, 0.466);
+  background-color: white;
+}
+
+.debit-credit-nav button {
+  margin-right: 1rem;
+  padding: 18px;
+  font-size: 1rem;
+  color: #f4f4f4;
+  background-color: #333333;
+  border: 1px solid #333333;
+  border-radius: 7px;
+  outline: none;
+
+  transition: 0.2s ease-in;
+}
+
+.debit-credit-nav button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  color: dodgerblue;
+  border: 1px solid rgba(30, 143, 255, 0.466);
+  background-color: white;
+}
