@@ -4,15 +4,17 @@
 }
 
 .title {
-  background-color: #004406;
+  background-color: forestgreen;
   color: white;
 
   font-size: 50px;
   padding: 40px;
 
-  border-radius: 0 0 300px 300px;
-  width: 90%;
+  /* border-radius: 0 0 300px 300px; */
   margin: auto;
+
+  cursor: default;
+  user-select: none;
 }
 
 .title p {
@@ -20,7 +22,7 @@
 }
 
 .route-link {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   background-color: #333333;
   padding: 30px;
 }
