@@ -17,6 +17,7 @@ class Credit extends Component {
         id: "",
       },
       viewBalance: false,
+      viewAddCredit: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.submitForm = this.submitForm.bind(this)
@@ -60,13 +61,11 @@ class Credit extends Component {
     let balance = Number(this.props.accountBalance).toFixed(2)
     return (
       <div>
-        <Link to="/">Return Home</Link>
-        <br />
-        <Link to="/debits">View Debit</Link>
-        <h3> Add Credit Transaction</h3>
+        <nav className="debit-credit-nav">
+          <Link to="/">Return Home</Link>
+          <Link to="/debits">View Debit</Link>
 
-        {/* View Balance */}
-        <div>
+          {/* Buttons */}
           <button
             onClick={() =>
               this.setState({ viewBalance: !this.state.viewBalance })
@@ -74,6 +73,47 @@ class Credit extends Component {
           >
             View Balance
           </button>
+
+          <button
+            onClick={() => {
+              this.setState({ viewAddCredit: !this.state.viewAddCredit })
+            }}
+          >
+            Add Credit
+          </button>
+        </nav>
+
+        <div>
+          {/* Displays */}
+          {this.state.viewAddCredit === true ? (
+            <div>
+              {/* Form */}
+              <form onSubmit={this.handleChange}>
+                <p>Add Credit Transaction</p>
+                <div>
+                  <label htmlFor="">Amount</label>
+                  <input
+                    onChange={this.handleChange}
+                    type="number"
+                    name="amount"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="">Description</label>
+                  <input
+                    onChange={this.handleChange}
+                    type="text"
+                    name="description"
+                  />
+                </div>
+
+                <button onClick={this.submitForm}>Submit</button>
+              </form>
+            </div>
+          ) : (
+            <span />
+          )}
+
           {this.state.viewBalance === true ? (
             <AccountBalance accountBalance={balance} />
           ) : (
@@ -82,23 +122,7 @@ class Credit extends Component {
           )}
         </div>
 
-        <form onSubmit={this.handleChange}>
-          <div>
-            <label>Amount</label>
-            <input onChange={this.handleChange} type="number" name="amount" />
-          </div>
-          <div>
-            <label>Description</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="description"
-            />
-          </div>
-
-          <button onClick={this.submitForm}>Submit</button>
-        </form>
-
+        {/* Display Credit */}
         <div className="debit-credit-title">
           <p>Credit</p>
         </div>

@@ -19,6 +19,7 @@ class Debits extends Component {
         id: '',
       },
       viewBalance: false,
+      viewAddDebit: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -63,14 +64,11 @@ class Debits extends Component {
     let balance = Number(this.props.accountBalance).toFixed(2);
     return (
       <div>
-        <Link to='/'>Return Home</Link>
-        <br />
-        <Link to='/Credit'>View Credit</Link>
-        <h1>Debit Info</h1>
-        <h3>Add Debit</h3>
+        <nav className='debit-credit-nav'>
+          <Link to='/'>Return Home</Link>
+          <Link to='/Credit'>View Credit</Link>
 
-        {/* View Balance */}
-        <div className='view-balance'>
+          {/* Buttons */}
           <button
             onClick={() =>
               this.setState({ viewBalance: !this.state.viewBalance })
@@ -78,6 +76,47 @@ class Debits extends Component {
           >
             View Balance
           </button>
+
+          <button
+            onClick={() => {
+              this.setState({ viewAddDebit: !this.state.viewAddDebit });
+            }}
+          >
+            Add Debit
+          </button>
+        </nav>
+
+        <div>
+          {/* Displays */}
+          {this.state.viewAddDebit === true ? (
+            <div>
+              {/* Form */}
+              <form onSubmit={this.handleChange}>
+                <p>Add Debit Transaction</p>
+                <div>
+                  <label htmlFor=''>Amount</label>
+                  <input
+                    onChange={this.handleChange}
+                    type='number'
+                    name='amount'
+                  />
+                </div>
+                <div>
+                  <label htmlFor=''>Description</label>
+                  <input
+                    onChange={this.handleChange}
+                    type='text'
+                    name='description'
+                  />
+                </div>
+
+                <button onClick={this.submitForm}>Submit</button>
+              </form>
+            </div>
+          ) : (
+            <span />
+          )}
+
           {this.state.viewBalance === true ? (
             <AccountBalance accountBalance={balance} />
           ) : (
@@ -86,26 +125,10 @@ class Debits extends Component {
           )}
         </div>
 
-        {/* Form */}
-        <form onSubmit={this.handleChange}>
-          <div>
-            <label htmlFor=''>Amount</label>
-            <input onChange={this.handleChange} type='number' name='amount' />
-          </div>
-          <div>
-            <label htmlFor=''>Description</label>
-            <input
-              onChange={this.handleChange}
-              type='text'
-              name='description'
-            />
-          </div>
-
-          <button onClick={this.submitForm}>Submit</button>
-        </form>
-
         {/* Display debit */}
-        <div className='debit-credit-title'></div>
+        <div className='debit-credit-title'>
+          <p>Debit</p>
+        </div>
         {this.state.debit.map((debit, index) => (
           <DisplayData
             key={index}
